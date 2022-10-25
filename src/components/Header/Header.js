@@ -28,12 +28,10 @@ const Header = () => {
                     </ul>
                 </div>
             </div>
-            <p>{user?.displayName}</p>
-            <div className="w-10 rounded-full">
-                <img src={user?.photoURL} alt='userPhoto' />
-            </div>
             <div className="navbar-center">
                 <Link to='/' className="btn btn-ghost normal-case text-xl">MCS</Link>
+                <p>{user?.displayName}</p>
+                <img className="w-10 rounded-full" src={user?.photoURL} alt='userPhoto' />
             </div>
             <div className="navbar-end">
                 <div className='space-x-4'>

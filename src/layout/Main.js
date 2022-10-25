@@ -1,12 +1,22 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../components/Header/Header';
+import SideNav from '../components/SideNav/SideNav';
 
 const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Outlet></Outlet>
+            <div className='grid grid-cols-12 gap-4'>
+                <div className='col-span-3'>
+                    <SideNav></SideNav>
+                </div>
+                <div className='col-span-9'>
+                    <h2>Container</h2>
+                    <Outlet></Outlet>
+                </div>
+            </div>
+
         </div>
     );
 };
