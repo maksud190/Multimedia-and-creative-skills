@@ -1,16 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
 import Main from './layout/Main';
 import Home from './components/Home/Home';
 import Login from './Login/Login';
 import Register from './components/Register/Register';
 import Courses from './components/Courses/Courses';
 import Blogs from './components/Blogs/Blogs';
+import app from './firebase/firebase.config';
+
+
+
+const auth = getAuth(app);
 
 function App() {
 
-  const router = createBrowserRouter([
+  const routes = createBrowserRouter([
     {
       path: '/',
       element: <Main></Main>,
@@ -44,8 +49,8 @@ function App() {
   ])
 
   return (
-    <div className="App">
-      <RouterProvider router={router}></RouterProvider>
+    <div className="">
+      <RouterProvider router={routes}></RouterProvider>
     </div>
   );
 }
