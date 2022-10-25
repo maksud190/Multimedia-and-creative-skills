@@ -7,11 +7,7 @@ import Login from './Login/Login';
 import Register from './components/Register/Register';
 import Courses from './components/Courses/Courses';
 import Blogs from './components/Blogs/Blogs';
-import app from './firebase/firebase.config';
 
-
-
-const auth = getAuth(app);
 
 function App() {
 
