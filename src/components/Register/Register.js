@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -69,7 +70,8 @@ const Register = () => {
                     </p>
                 </div>
             </div>
-            <p>sgsrgshfvs fsef evuwe cuwe cvwevuiw vwev wepvwvp bebnheuihn th bhurtb 54huer8bherg ergeruighweig 43g349gth34 g34bngndi og bderghuerbger gergehgiwergwb gwgi wgiw egw egwoigbweg wgowg wjeg wg wegi wgweigweogwe gwoeig  weg wegoi wigw gwg wgi</p>
+            <br />
+            <p className='font-semibold'><Link className='underline text-sky-600' to='/login'>Already have an account?</Link></p>
         </form>
     );
 };

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 
@@ -82,7 +82,8 @@ const Login = () => {
                 <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle>- Login with Google</button>
                 <button className="btn btn-outline"><FaGithub></FaGithub>- Login with GitHub</button>
             </div>
-            <p>sgsrgshfvs fsef evuwe cuwe cvwevuiw vwev wepvwvp bebnheuihn th bhurtb 54huer8bherg ergeruighweig 43g349gth34 g34bngndi og bderghuerbger gergehgiwergwb gwgi wgiw egw egwoigbweg wgowg wjeg wg wegi wgweigweogwe gwoeig  weg wegoi wigw gwg wgi</p>
+            <br />
+            <p className='font-semibold'>Do not have account? <Link className='underline text-sky-600' to='/register'>Create Account</Link></p>
         </form>
     );
 };

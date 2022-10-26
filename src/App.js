@@ -9,6 +9,7 @@ import Courses from './components/Courses/Courses';
 import Blogs from './components/Blogs/Blogs';
 import Category from './components/Category/Category';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import CourseDetails from './components/CourseDetails/CourseDetails';
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
       children: [
         {
           path: '/',
-          element: <Home></Home>
+          element: <Home></Home>,
+          loader: ()=> fetch('http://localhost:5000/allCourses')
         },
         {
           path: '/login',
@@ -32,7 +34,7 @@ function App() {
         },
         {
           path: '/courses',
-          element: <PrivateRoute><Courses></Courses></PrivateRoute>
+          element: <Courses></Courses>
         },
         {
           path: '/blogs',
@@ -40,7 +42,13 @@ function App() {
         },
         {
           path: '/category/:id',
-          element: <Category></Category>
+          element: <Category></Category>,
+          loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+        },
+        {
+          path: '/courseDetails/:id',
+          element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+          loader: ({params})=> fetch(`http://localhost:5000/categoryData/${params.id}`)
         }
       ]
     },
