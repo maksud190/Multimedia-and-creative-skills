@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import Courses from './components/Courses/Courses';
 import Blogs from './components/Blogs/Blogs';
 import Category from './components/Category/Category';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
         },
         {
           path: '/courses',
-          element: <Courses></Courses>
+          element: <PrivateRoute><Courses></Courses></PrivateRoute>
         },
         {
           path: '/blogs',

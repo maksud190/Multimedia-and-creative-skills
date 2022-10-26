@@ -5,7 +5,13 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleGoogleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     return (
 
@@ -30,13 +36,27 @@ const Header = () => {
             </div>
             <div className="navbar-center">
                 <Link to='/' className="btn btn-ghost normal-case text-xl">MCS</Link>
-                <p>{user?.displayName}</p>
-                <img className="w-10 rounded-full" src={user?.photoURL} alt='userPhoto' />
             </div>
             <div className="navbar-end">
                 <div className='space-x-4'>
-                    <Link to='/login'>Log In</Link>
-                    <Link to='/register'>Register</Link>
+                    <div className='inline-block'>
+                        {
+                            user?.uid ?
+                                <>
+                                    <p className='inline-block'>{user?.displayName}-</p>
+                                    <img className="w-10 rounded-full inline-block" src={user?.photoURL} alt='userPhoto' />
+                                    <button onClick={handleGoogleLogOut} className='bg-blue-500 text-white px-2 py-1 rounded ml-1'>Log Out</button>
+                                </>
+                                :
+                                <>
+                                    <Link className='bg-blue-500 text-white px-2 py-1 rounded ml-1' to='/login'>Log In</Link>
+                                    <Link className='bg-blue-500 text-white px-2 py-1 rounded ml-1' to='/register'>Register</Link>
+                                </>
+                        }
+
+                    </div>
+
+
                 </div>
             </div>
         </div>
