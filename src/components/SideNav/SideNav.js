@@ -9,8 +9,8 @@ const SideNav = () => {
 
     useEffect(() => {
         fetch('http://localhost:5000/categories')
-        .then(res => res.json())
-        .then(data => setCategories(data))
+            .then(res => res.json())
+            .then(data => setCategories(data))
     }, [])
 
     return (
@@ -19,8 +19,11 @@ const SideNav = () => {
             <div>
                 {
                     categories.map(category => <p key={category.id}>
-                        <Link className='link-hover hover:text-sky-700' to={`/category/${category.id}`}>{category.name}</Link>
-                    </p> )
+                        <div className='my-5'>
+
+                            <Link className='my-6 link-hover hover:text-sky-700' to={`/category/${category.id}`}>{category.name}</Link>
+                        </div>
+                    </p>)
                 }
             </div>
         </div>

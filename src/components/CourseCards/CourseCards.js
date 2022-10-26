@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Courses = ({ course }) => {
-
-    const { title, details, image_url, _id } = course;
+const CourseCards = ({course}) => {
+    const { title, details, image_url, _id} = course;
     console.log(course);
 
     return (
@@ -11,15 +10,15 @@ const Courses = ({ course }) => {
             <figure><img className='h-32 w-64' src={image_url} alt="Album" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
-                {
+            {
                     details.length > 100 ?
-                        <p>{details.slice(0, 100) + '... '}<Link className='text-sky-600 underline' to={`/courseDetails/${_id}`}>Learn more</Link></p>
-                        :
-                        <p>{details}</p>
+                    <p>{details.slice(0, 100)+ '... '}<Link className='text-sky-600 underline' to={`/courseDetails/${_id}`}>Learn more</Link> </p>
+                    :
+                    <p>{details}</p>
                 }
             </div>
         </div>
     );
 };
 
-export default Courses;
+export default CourseCards;

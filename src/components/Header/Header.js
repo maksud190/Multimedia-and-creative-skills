@@ -44,7 +44,7 @@ const Header = () => {
                             user?.uid ?
                                 <>
                                     <p className='inline-block'>{user?.displayName}-</p>
-                                    <img className="w-10 rounded-full inline-block" src={user?.photoURL} alt='userPhoto' />
+                                    <img className="w-10 rounded-full inline-block tooltip tooltip-bottom" data-tip="hello" src={user?.photoURL} alt='userPhoto' />
                                     <button onClick={handleGoogleLogOut} className='bg-blue-500 text-white px-2 py-1 rounded ml-1'>Log Out</button>
                                 </>
                                 :

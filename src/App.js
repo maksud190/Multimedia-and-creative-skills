@@ -10,6 +10,7 @@ import Blogs from './components/Blogs/Blogs';
 import Category from './components/Category/Category';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import CourseDetails from './components/CourseDetails/CourseDetails';
+import CourseCards from './components/CourseCards/CourseCards';
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
         },
         {
           path: '/courseDetails/:id',
-          element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+          element: <CourseDetails></CourseDetails>,
           loader: ({params})=> fetch(`http://localhost:5000/categoryData/${params.id}`)
         }
       ]
