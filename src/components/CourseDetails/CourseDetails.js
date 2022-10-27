@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
-const CourseDetails = ({ course }) => {
+const CourseDetails = () => {
 
 
     const courseDetails = useLoaderData();
 
-    const { title, details, image_url } = course || {};
+    // const { title, details, image_url } = course || {};
 
     const handlePremium = () => {
         

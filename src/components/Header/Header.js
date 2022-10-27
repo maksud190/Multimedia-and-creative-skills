@@ -22,6 +22,7 @@ const Header = () => {
                     <Link to='/courses'>Courses</Link>
                     <Link to='/blogs'>Blogs</Link>
                 </div>
+                <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"></button>
 
                 <div className="dropdown md:hidden lg:hidden">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -43,7 +44,7 @@ const Header = () => {
                         {
                             user?.uid ?
                                 <>
-                                    <p className='inline-block'>{user?.displayName}-</p>
+                                    <p className='inline-block tooltip tooltip-bottom" data-tip="User Profile"'>{user?.displayName}-</p>
                                     <img className="w-10 rounded-full inline-block tooltip tooltip-bottom" data-tip="User Profile" src={user?.photoURL} alt='photoURL' />
                                     <button onClick={handleGoogleLogOut} className='bg-blue-500 text-white px-2 py-1 rounded ml-1'>Log Out</button>
                                 </>

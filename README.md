@@ -1,3 +1,21 @@
+# My project:
+
+### Multimedia and Creative Skills
+
+Link of my site:
+### 
+
+## what I have Used in this project: 
+
+. DaisyUI
+. React Router
+. Context API
+. Firebase for authentication
+. Firebase to deploy the client Site
+. Vercel to deploy the server site
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

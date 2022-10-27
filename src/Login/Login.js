@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
@@ -7,8 +7,10 @@ import { FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import app from '../firebase/firebase.config';
 
 
+const auth = getAuth(app);
 
 const Login = () => {
 
@@ -28,7 +30,23 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
+    }
+
+    const githubLogin = new GithubAuthProvider();
+    const handleGithubSignIn= ()=> {
+        signInWithPopup(auth, githubLogin)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {
+            console.error(error)
+                setError(error.message);
+        })
     }
 
     const handleSubmit = (event) => {
@@ -88,7 +106,7 @@ const Login = () => {
             <p className='mt-5'>-----OR-----</p>
             <div className='space-y-5 space-x-5'>
                 <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle>- Login with Google</button>
-                <button className="btn btn-outline"><FaGithub></FaGithub>- Login with GitHub</button>
+                <button onClick={handleGithubSignIn} className="btn btn-outline"><FaGithub></FaGithub>- Login with GitHub</button>
             </div>
             <br />
             <p className='font-semibold'>Do not have account? <Link className='underline text-sky-600' to='/register'>Create Account</Link></p>
