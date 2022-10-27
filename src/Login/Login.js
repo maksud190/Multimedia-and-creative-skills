@@ -6,16 +6,17 @@ import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 
 const Login = () => {
 
+    const [error, setError] = useState('');
+    const { googleLogin, signIn, user } = useContext(AuthContext);
+    
     const navigate = useNavigate();
 
-    const { googleLogin, signIn } = useContext(AuthContext);
-
-    const [error, setError] = useState('');
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
@@ -26,7 +27,6 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, {replace: true});
             })
             .catch(error => console.error(error))
     }
@@ -36,6 +36,8 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+
+        console.log(event);
 
         signIn(email, password)
             .then(result => {
@@ -50,6 +52,12 @@ const Login = () => {
                 setError(error.message);
             })
     }
+
+    useEffect(()=>{
+        if(user?.email){
+            navigate(from, {replace: true});
+        }
+    },[user])
 
     return (
         <form onSubmit={handleSubmit}>

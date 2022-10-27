@@ -11,6 +11,7 @@ import Category from './components/Category/Category';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import CourseDetails from './components/CourseDetails/CourseDetails';
 import CourseCards from './components/CourseCards/CourseCards';
+import CheckOut from './components/CheckOut/CheckOut';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         {
           path: '/',
           element: <Home></Home>,
-          loader: ()=> fetch('http://localhost:5000/allCourses')
+          loader: ()=> fetch('https://assignment-10-educational-server.vercel.app/allCourses')
         },
         {
           path: '/login',
@@ -35,7 +36,8 @@ function App() {
         },
         {
           path: '/courses',
-          element: <Courses></Courses>
+          element: <Courses></Courses>,
+          loader: ()=> fetch('https://assignment-10-educational-server.vercel.app/allCourses')
         },
         {
           path: '/blogs',
@@ -44,15 +46,23 @@ function App() {
         {
           path: '/category/:id',
           element: <Category></Category>,
-          loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-10-educational-server.vercel.app/category/${params.id}`)
         },
         {
           path: '/courseDetails/:id',
           element: <CourseDetails></CourseDetails>,
-          loader: ({params})=> fetch(`http://localhost:5000/categoryData/${params.id}`)
+          loader: ({params})=> fetch(`https://assignment-10-educational-server.vercel.app/categoryData/${params.id}`)
+        },
+        {
+          path: '/checkOut',
+          element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
         }
       ]
     },
+    {
+      path: '/*',
+      element: <div className='flex justify-center text-red-600'><h1>Error 404...</h1><p>Page is not found. please route a valid page</p></div>
+    }
     // {
     //   path: '*',
     //   element: <div>hwllow</div>

@@ -23,8 +23,8 @@ const Register = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            form.reset();
             setError('');
+            form.reset();
         })
         .catch(error=> {
             console.error(error);
