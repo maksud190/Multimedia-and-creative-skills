@@ -8,7 +8,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import app from '../firebase/firebase.config';
-import Toggle from '../components/Toggle/Toggle';
 
 
 const auth = getAuth(app);
