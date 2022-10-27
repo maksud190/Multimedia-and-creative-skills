@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import SideNav from '../components/SideNav/SideNav';
+import Toggle from '../components/Toggle/Toggle';
 
 const Main = () => {
     return (
@@ -13,6 +14,7 @@ const Main = () => {
                     <SideNav></SideNav>
                 </div>
                 <div className='col-span-9'>
+                <Toggle></Toggle>
                     <Outlet></Outlet>
                 </div>
             </div>
