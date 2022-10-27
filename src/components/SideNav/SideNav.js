@@ -16,7 +16,7 @@ const SideNav = () => {
     return (
         <div>
             <h1 className='text-xl'>Categories</h1>
-            <div>
+            <div className=''>
                 {
                     categories.map(category => <p key={category.id}>
                         <div className='my-5'>

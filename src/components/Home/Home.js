@@ -1,6 +1,7 @@
 import React from 'react';
 // import { useLoaderData } from 'react-router-dom';
 import Courses from '../Courses/Courses';
+import logo from '../../images/logo.png'
 
 const Home = () => {
 
@@ -9,8 +10,8 @@ const Home = () => {
 
     return (
         <div>
-            <div>
-                <img src="../../images/android-chrome-512x512.png" alt="" />
+            <div className='flex '>
+                <img className='h-10 mr-4' src={logo} alt="" />
                 <h1 className='font-semibold text-2xl'>Multimedia and Creative Skills</h1>
             </div>
 

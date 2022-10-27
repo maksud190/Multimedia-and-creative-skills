@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import SideNav from '../SideNav/SideNav';
 
 
 const Header = () => {
@@ -32,11 +33,12 @@ const Header = () => {
                         <li><Link>Homepage</Link></li>
                         <li><Link>Portfolio</Link></li>
                         <li><Link>About</Link></li>
+                        <SideNav></SideNav>
                     </ul>
                 </div>
             </div>
             <div className="navbar-center">
-                <Link to='/' className="btn btn-ghost normal-case text-xl">MCS</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl font-bold">MCS</Link>
             </div>
             <div className="navbar-end">
                 <div className='space-x-4'>
@@ -50,7 +52,7 @@ const Header = () => {
                                 </>
                                 :
                                 <>
-                                    <Link className='bg-blue-500 text-white px-2 py-1 rounded ml-1' to='/login'>Log In</Link>
+                                    <Link className='bg-blue-500 text-white px-2 py-1 rounded ml-1' to='/login'>Login</Link>
                                     <Link className='bg-blue-500 text-white px-2 py-1 rounded ml-1' to='/register'>Register</Link>
                                 </>
                         }
@@ -61,27 +63,6 @@ const Header = () => {
                 </div>
             </div>
         </div>
-
-
-
-
-
-        // <div className=''>
-        //     <div className="navbar bg-primary text-primary-content">
-        //         <Link to='/' className="btn btn-ghost normal-case text-xl">MCS</Link>
-        //         <div className=''>
-        //             <div>
-        //                 <Link to='/courses'>Courses</Link>
-        //                 <Link to='/blogs'>Blogs</Link>
-        //             </div>
-        //             <div className=''>
-        //                 <Link to='/login'>Log In</Link>
-        //                 <Link to='/register'>Register</Link>
-        //             </div>
-        //         </div>
-        //         <p>{user.displayName}</p>
-        //     </div>
-        // </div>
     );
 };
 

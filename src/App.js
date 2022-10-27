@@ -55,8 +55,7 @@ function App() {
         },
         {
           path: '/checkOut',
-          element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-          // loader: ({params})=> fetch(`http://localhost:3000/courseDetails/${params.id}`)
+          element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
         }
       ]
     },
